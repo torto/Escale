@@ -1,0 +1,6 @@
+{
+  "name": "SortText",
+  "description": "Sort text",
+  "private": true,
+  "main": "./SortText.js"
+}

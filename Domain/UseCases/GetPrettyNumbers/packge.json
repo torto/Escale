@@ -1,0 +1,6 @@
+{
+  "name": "GetPrettyNumbers",
+  "description": "Get Pretty Numbers",
+  "private": true,
+  "main": "./GetPrettyNumbers.js"
+}

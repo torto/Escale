@@ -1,0 +1,26 @@
+{
+  "name": "escale",
+  "version": "1.0.0",
+  "description": "Test Escale",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=development NODE_PATH=./ nodemon index.js",
+    "debug": "NODE_ENV=development NODE_PATH=./ nodemon --inspect index.js",
+    "test": "NODE_ENV=test NODE_PATH=./ mocha \"./{,!(node_modules)/**/}*.test.js\" --colors --reporter spec",
+    "test:watch": "yarn test -- --watch --reporter min",
+    "test:watch:debug": "yarn test -- --watch --reporter min --inspect",
+    "coverage": "nyc report --reporter=lcov yarn test"
+  },
+  "author": "torto",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^3.1.1",
+    "nodemon": "^1.11.0",
+    "nyc": "^11.0.3",
+    "watch-cli": "^0.2.1"
+  },
+  "dependencies": {
+    "joi": "^13.1.2"
+  }
+}

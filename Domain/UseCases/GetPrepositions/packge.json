@@ -1,0 +1,6 @@
+{
+  "name": "GetPrepositions",
+  "description": "Get All Prepositions in text",
+  "private": true,
+  "main": "./GetPrepositions.js"
+}

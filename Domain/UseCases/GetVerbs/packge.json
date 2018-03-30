@@ -1,0 +1,6 @@
+{
+  "name": "GetVerbs",
+  "description": "Get All Verbs in text",
+  "private": true,
+  "main": "./GetVerbs.js"
+}

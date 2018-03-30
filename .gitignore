@@ -1,0 +1,20 @@
+# dependencies
+node_modules
+
+#coverage
+coverage
+.nyc_output
+
+#logs
+npm-debug.log
+
+#ide
+.idea
+yarn-error.log
+
+#yarn
+yarn.lock
+
+.DS_Store
+
+package-lock.json
