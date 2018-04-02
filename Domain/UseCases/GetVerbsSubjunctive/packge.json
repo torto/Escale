@@ -1,0 +1,6 @@
+{
+  "name": "GetVerbsSubjunctive",
+  "description": "Get All Verbs Sub in text",
+  "private": true,
+  "main": "./GetVerbsSubjunctive.js"
+}

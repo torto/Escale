@@ -1,13 +1,10 @@
 const dependencies = {
-  Word: require('Domain/Entities/Word')
+  ParseTextToArray: require('Domain/Utils/ParseTextToArray')
 }
 
 function GetVerbs (text, injection) {
-  const { Word } = Object.assign({}, dependencies, injection)
-  const words = text.split(' ')
-  const arrayWords = words.map((item) => {
-    return new Word(item)
-  })
+  const { ParseTextToArray } = Object.assign({}, dependencies, injection)
+  const arrayWords = ParseTextToArray(text)
 
   const numerVerbs = arrayWords.reduce((value, item) => {
     if (item.isVerb()) return ++value

@@ -6,7 +6,7 @@ const LENGTH_PREPOSITION = 5
 const POSITION_LAST_PREPOSITIONS = 4
 const LETTER_NOT_PREPOSITION = 'l'
 
-const MIN_LENGTH_VERB = 7
+const MIN_LENGTH_VERB = 8
 
 class Word {
   constructor (word = '') {
@@ -15,18 +15,14 @@ class Word {
   }
 
   isFooLetter (letter) {
-    const fooLetters = {
-      r: true,
-      t: true,
-      c: true,
-      d: true,
-      b: true
-    }
-    return !!fooLetters[letter]
+    const fooLetters = ['r', 't', 'c', 'd', 'b'];
+    return fooLetters.includes(letter)
   }
 
   isBarLetter (letter) {
-    return !this.isFooLetter(letter)
+    const barLetters = ['h', 'n', 'f', 'x', 'm', 'j', 'k', 'w', 'g', 'z', 'q',
+    'l', 'v', 's', 'p'];
+    return barLetters.includes(letter)
   }
 
   hasLetter (letter) {
@@ -35,23 +31,20 @@ class Word {
 
   isPreposition () {
     if (this.length === LENGTH_PREPOSITION) {
-      return this.isBarLetter(this.word[POSITION_LAST_PREPOSITIONS]) &&
+      return this.isBarLetter(this.word.slice(POSITION_LAST_PREPOSITIONS)) &&
       !this.hasLetter(LETTER_NOT_PREPOSITION)
     }
     return false
   }
 
   isVerb () {
-    if (this.length >= MIN_LENGTH_VERB) {
-      return this.isBarLetter(this.word[this.length - 1])
-    }
+    if (this.length >= MIN_LENGTH_VERB &&
+      this.isBarLetter(this.word.slice(-1))) return true
     return false
   }
 
   isVerbSubjunctive () {
-    if (this.isVerb()) {
-      return this.isBarLetter(this.word[0])
-    }
+    if (this.isVerb()) return this.isBarLetter(this.word.slice(0,1))
     return false
   }
 

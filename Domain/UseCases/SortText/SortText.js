@@ -1,17 +1,15 @@
 const dependencies = {
-  Word: require('Domain/Entities/Word'),
+  ParseTextToArray: require('Domain/Utils/ParseTextToArray'),
   constants: require('Domain/constants')
 }
 
 function SortText (text, injection) {
-  const { Word, constants } = Object.assign({}, dependencies, injection)
-  const words = text.split(' ')
-  const arrayWords = words.map((item) => {
-    return new Word(item)
-  })
+  const { ParseTextToArray, constants } = Object.assign({}, dependencies, injection)
+  const arrayWords = ParseTextToArray(text)
+
   const order = constants.orderAlphabet
 
-  const textFinal = arrayWords.sort((a, b) => {
+  const alphabetText = arrayWords.sort((a, b) => {
     let pos1 = 0
     let pos2 = 0
     for (let i = 0; i < Math.min(a.word.length, b.word.length) && pos1 === pos2; i++) {
@@ -29,7 +27,7 @@ function SortText (text, injection) {
     return pos1 - pos2
   })
 
-  return textFinal.map(e => e.word).join(' ')
+  return alphabetText.map(e => e.word).join(' ')
 }
 
 module.exports = SortText

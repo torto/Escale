@@ -64,7 +64,7 @@ describe('Word Entitie', () => {
       const word = new Word(verbWord)
       expect(word.isVerb()).to.be.equal(true)
     })
-    it('is not verb', () => {
+    it('is not verb (finish with foo letter)', () => {
       const verbWord = 'asderwc'
       const word = new Word(verbWord)
       expect(word.isVerb()).to.be.equal(false)
@@ -73,6 +73,14 @@ describe('Word Entitie', () => {
       const anotherWord = 'jr'
       const word = new Word(anotherWord)
       expect(word.isVerb()).to.be.equal(false)
+    })
+  })
+
+  describe('isVerbSubjunctive function', () => {
+    it('is verb (7 letters)', () => {
+      const verbWord = 'asdswasw'
+      const word = new Word(verbWord)
+      expect(word.isVerb()).to.be.equal(true)
     })
   })
 
